@@ -1,0 +1,130 @@
+public class ArrayBidimensional {
+    public static void main(String[] args) {
+        // Matriz original 3x3
+        int[][] matrizOriginal = new int[3][3];
+
+        // Preenchendo a matriz original
+        matrizOriginal[0][0] = 120; matrizOriginal[1][0] = 232; matrizOriginal[2][0] = 201;
+        matrizOriginal[0][1] = 120; matrizOriginal[1][1] = 232; matrizOriginal[2][1] = 201;
+        matrizOriginal[0][2] = 120; matrizOriginal[1][2] = 232; matrizOriginal[2][2] = 201;
+
+        // Criando nova matriz 5x5
+        int[][] matrizExpandida = new int[5][5];
+
+        // Copiando os valores da 3x3 para a 5x5
+        for (int i = 0; i < matrizOriginal.length; i++) {
+            for (int j = 0; j < matrizOriginal[i].length; j++) {
+                matrizExpandida[i][j] = matrizOriginal[i][j];
+            }
+        }
+
+        // Exibindo a matriz expandida
+        System.out.println("Matriz 5x5:");
+        for (int i = 0; i < matrizExpandida.length; i++) {
+            for (int j = 0; j < matrizExpandida[i].length; j++) {
+                System.out.print(matrizExpandida[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+
+
+
+exercicio 3 :  
+import java.util.ArrayList;
+
+public class ExemploArrayList {
+    public static void main(String[] args) {
+        ArrayList<Integer> numeros = new ArrayList<>();
+
+        numeros.add(10);
+        numeros.add(20);
+        numeros.add(30);
+
+        for (int num : numeros) {
+            System.out.println(num);
+        }
+    }
+}
+
+exercicio 2 : public class ArrayIrregular {
+    public static void main(String[] args) {
+        int[][] irregular = new int[3][];
+        irregular[0] = new int[2];
+        irregular[1] = new int[4];
+        irregular[2] = new int[1];
+
+        // Preenchendo e exibindo
+        for (int i = 0; i < irregular.length; i++) {
+            for (int j = 0; j < irregular[i].length; j++) {
+                irregular[i][j] = i + j;
+                System.out.print(irregular[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+
+exercicio 3:int[] pilha = new int[10];
+int topo = -1;
+
+// Empilhando 10 elementos
+for (int i = 0; i < 10; i++) {
+    pilha[++topo] = i + 1;
+}
+
+
+
+
+exercicio 5 : import java.util.Stack;
+
+public class ExemploPilhaSimples2 {
+    public static void main(String[] args) {
+        Stack<Integer> pilha = new Stack<>();
+
+        for (int i = 1; i <= 10; i++) {
+            pilha.push(i);
+        }
+
+        // Mostrar elementos
+        while (!pilha.isEmpty()) {
+            System.out.println(pilha.pop());
+        }
+    }
+}
+
+exercico 6 : import java.util.Stack;
+
+public class ExemploStack {
+    public static void main(String[] args) {
+        Stack<String> historico = new Stack<>();
+
+        historico.push("https://www.google.com");
+        historico.push("https://www.openai.com");
+        historico.push("https://www.github.com");
+        historico.push("https://www.oracle.com/java/");
+        historico.push("https://www.stackoverflow.com");
+
+        while (!historico.isEmpty()) {
+            System.out.println("Visitado: " + historico.pop());
+        }
+    }
+}
+
+exercicios 7:import java.util.Arrays;
+
+public class OrdenaArray {
+    public static void main(String[] args) {
+        String[] nomes = {"Carlos", "Amanda", "Bruno", "Daniel"};
+        Arrays.sort(nomes);  // Ordena alfabeticamente
+
+        for (String nome : nomes) {
+            System.out.println(nome);
+        }
+    }
+}
