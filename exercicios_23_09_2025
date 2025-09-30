@@ -1,1 +1,232 @@
+Ecercicio 1
+
+import java.util.Scanner;
+
+public class ExemploEnum {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Digite o dia da semana (ex: SEGUNDA, TERCA...): ");
+        String entrada = scanner.next().toUpperCase();
+
+        try {
+            DiaDaSemana dia = DiaDaSemana.valueOf(entrada);
+
+            System.out.println("Você escolheu: " + dia);
+
+            switch (dia) {
+                case SEGUNDA:
+                    System.out.println("Prova de Desenvolbimento de Sistemas para Internet");
+                    break;
+                case TERCA:
+                    System.out.println("Prova de Algoritimos e Estrutura de das I");
+                    case QUARTA:
+                        System.out.println("Sistemas Operacionais");
+                    case QUINTA:
+                        System.out.println("Prova EAD");
+                        
+                case SEXTA:
+                    System.out.println("Prova de Matematica Discreta I e II");
+                    break;
+                case SABADO:
+                    System.out.println("Estudar");
+                    break;
+                case DOMINGO:
+                    System.out.println("Estudar");
+                    break;
+                default:
+                    System.out.println("Dia comum.");
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Dia inválido! Digite um nome correto em maiúsculo (ex: SEGUNDA).");
+        }
+
+        scanner.close();
+    }
+}
+
+// Enum deve vir depois da classe principal no Programiz
+enum DiaDaSemana {
+    SEGUNDA,
+    TERCA,
+    QUARTA,
+    QUINTA,
+    SEXTA,
+    SABADO,
+    DOMINGO
+}
+
+
+
+
+
+
+Exercicio 2 :
+
+
+import java.util.Scanner;
+
+
+public class ExemploEnumNumerico {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Exibe as opções para o usuário
+        System.out.println("Escolha o nível de acesso:");
+        System.out.println("1 - ADMIN");
+        System.out.println("2 - USUARIO");
+        System.out.println("3 - CONVIDADO");
+        System.out.println("4 - Valdemar");
+        System.out.print("Digite o número correspondente: ");
+
+        int opcao = scanner.nextInt(); // Lê o número digitado pelo usuário
+
+        try {
+            // Variável para armazenar o nível escolhido
+            NivelAcesso nivel;
+
+            // Converte a escolha numérica para o enum correspondente
+            switch (opcao) {
+                case 1:
+                    nivel = NivelAcesso.ADMIN;
+                    break;
+                case 2:
+                    nivel = NivelAcesso.USUARIO;
+                    break;
+                case 3:
+                    nivel = NivelAcesso.CONVIDADO;
+                    break;
+                    case 4:
+                    nivel = NivelAcesso.VALDEMORT;
+                    break ;
+                    
+        
+                default:
+                    // Se o número não for 1, 2 ou 3, lança exceção
+                    throw new IllegalArgumentException();
+            }
+
+            // Mostra o nível escolhido
+            System.out.println("Nível de acesso escolhido: " + nivel);
+
+            // Usa switch novamente para exibir mensagens específicas
+            switch (nivel) {
+                case ADMIN:
+                    System.out.println("Acesso total ao sistema.");
+                    break;
+                case USUARIO:
+                    System.out.println("Acesso limitado: pode usar funções básicas.");
+                    break;
+                case CONVIDADO:
+                    System.out.println("Apenas visualização.");
+                    break;
+                case VALDEMORT:
+                System.out.println("Acesso Total");
+                break;
+                    
+            }
+        } catch (IllegalArgumentException e) {
+            // Caso o usuário digite um número inválido
+            System.out.println("Opção inválida! Digite 1, 2 ou 3.");
+        }
+
+        // Fecha o Scanner
+        scanner.close();
+    }
+}
+
+
+// Definição do enum que representa os níveis de acesso
+enum NivelAcesso {
+    ADMIN,
+    USUARIO,
+    CONVIDADO,
+    VALDEMORT
+}
+
+
+
+
+
+Exercicio 3 :
+import java.util.Vector;
+
+public class ExemploVector {
+    public static void main(String[] args) {
+        // Criando um Vector de Strings
+        // Vector é como um ArrayList, mas é sincronizado (thread-safe)
+        Vector<String> nomes = new Vector<>();
+
+        // Adicionando elementos ao Vector
+        nomes.add("Alice");   // Adiciona "Alice" no final
+        nomes.add("Bob");     // Adiciona "Bob" no final
+        nomes.add("Carlos");  // Adiciona "Carlos" no final
+
+        // Exibindo todos os elementos do Vector
+        System.out.println("Elementos do Vector: " + nomes);
+
+        // Acessando um elemento específico pelo índice
+        System.out.println("Primeiro elemento: " + nomes.get(0)); // índice 0 = Alice
+
+        // Removendo um elemento pelo valor
+        nomes.remove("Bob"); // Remove "Bob" do Vector
+        System.out.println("Após remover Bob: " + nomes);
+
+        // Verificando o tamanho atual do Vector
+        System.out.println("Tamanho do Vector: " + nomes.size());
+
+        // Verificando se um elemento existe no Vector
+        if (nomes.contains("Carlos")) {
+            System.out.println("Carlos está no Vector!");
+        }
+
+        // Percorrendo o Vector usando for-each
+        System.out.println("\nPercorrendo o Vector:");
+        for (String nome : nomes) {
+            System.out.println(nome); // Imprime cada elemento
+        }
+
+        // Outras operações úteis:
+        // nomes.add(1, "Daniel"); // Insere "Daniel" na posição 1, deslocando os outros
+        // nomes.remove(0);         // Remove o elemento da posição 0
+        // nomes.clear();           // Remove todos os elementos
+    }
+}
+
+
+exercicio 4 :
+
+import java.util.Stack;
+
+public class ExemploStack {
+    public static void main(String[] args) {
+        // Cria uma nova instância da classe Stack para armazenar Strings.
+        // Stack é uma estrutura de dados LIFO (Last-In, First-Out).
+        Stack<String> historicoDeNavegacao = new Stack<>();
+
+        // 1. Adiciona elementos na pilha usando o método push().
+        // O último elemento adicionado será o primeiro a ser removido.
+        historicoDeNavegacao.push("pagina-inicial.com");
+        historicoDeNavegacao.push("produtos.com");
+        historicoDeNavegacao.push("carrinho.com"); // Este é o topo da pilha agora.
+
+        // 2. Acessa o elemento do topo da pilha sem removê-lo.
+        // O método peek() retorna "carrinho.com".
+        System.out.println("Página atual (topo): " + historicoDeNavegacao.peek());
+
+        // 3. Remove e retorna o elemento do topo da pilha.
+        // O método pop() remove "carrinho.com" e o retorna.
+        System.out.println("Voltando para a página anterior: " + historicoDeNavegacao.pop());
+
+        // 4. Acessa o novo elemento do topo da pilha.
+        // O novo topo é "produtos.com".
+        System.out.println("Página atual: " + historicoDeNavegacao.peek());
+    }
+}
+
+
+
+
+
+
 
