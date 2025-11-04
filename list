@@ -1,0 +1,29 @@
+1) lista comum(Array list)
+___________________________
+
+Em java, uma arraylist é implemetada internamente com um array dinâmco,ou seja,- 
+um vetor que aumenta de tamanho conforme a necessidade.
+
+Representação:
+
+indíce:   0    1    2
+
+lista =  [joão|maria|pedro]
+
+cada posição é acessada por índice numérico.
+
+
+2) lista encadeada (LinkedList)
+
+ A Linkedlist é composta por nós(nodes) e cada nó contém
+ - Um valor (dado)
+ - um ponteiro(referência) para o proximo nó.
+
+
+Representação
+
+A -> B -> C -> NULL
+
+cada seta(-> represente a referência ao próximo nó.
+
+- o último nó aponta para null, indicando o final da lista.
